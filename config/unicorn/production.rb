@@ -1,8 +1,8 @@
-working_directory '/var/www/goappf/current'
-pid '/var/www/goappf/current/tmp/pids/unicorn.pid'
-stderr_path '/var/www/goappf/log/unicorn.log'
-stdout_path '/var/www/goappf/log/unicorn.log'
-listen '/tmp/unicorn.goappf.sock'
+working_directory '/var/www/beenom/current'
+pid '/var/www/beenom/current/tmp/pids/unicorn.pid'
+stderr_path '/var/www/beenom/log/unicorn.log'
+stdout_path '/var/www/beenom/log/unicorn.log'
+listen '/tmp/unicorn.beenom.sock'
 worker_processes 2
 timeout 30
 

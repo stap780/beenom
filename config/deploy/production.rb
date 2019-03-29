@@ -59,5 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '142.93.87.85', user: 'deploy', roles: %w{app db web}
+server '157.230.167.22', user: 'deploy', roles: %w{app db web}
 set :unicorn_rack_env, -> { "production" }
