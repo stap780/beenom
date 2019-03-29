@@ -3,7 +3,7 @@ pid '/var/www/beenom/current/tmp/pids/unicorn.pid'
 stderr_path '/var/www/beenom/log/unicorn.log'
 stdout_path '/var/www/beenom/log/unicorn.log'
 listen '/tmp/unicorn.beenom.sock'
-worker_processes 2
+worker_processes 4
 timeout 30
 
 before_fork do |server, worker|
