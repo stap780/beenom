@@ -1,0 +1,32 @@
+<h1>Listing Itemimages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Item_new</th>
+      <th>Image Url</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @itemimages.each do |itemimage| %>
+      <tr>
+        <td><%= itemimage.item_id %></td>
+        <td><%= truncate(itemimage.item_new, :length => 20) %></td>
+        <td><%= truncate(itemimage.image.to_s, :length => 20)%></td>
+        <td><%= itemimage.position %></td>
+        <td><%= link_to(image_tag(itemimage.image.url(:thumb)), itemimage.image.url, target: '_blank') if itemimage.image.exists? %></td>
+        <td><%= link_to 'Show', itemimage %></td>
+        <td><%= link_to 'Edit', edit_itemimage_path(itemimage) %></td>
+        <td><%= link_to 'Destroy', itemimage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Itemimage', new_itemimage_path %>

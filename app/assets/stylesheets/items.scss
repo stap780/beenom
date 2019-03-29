@@ -1,0 +1,92 @@
+/* file upload style - https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+}
+.new_itemimage .glyphicon {
+    font-size: 1.9em;
+    text-align: center;
+    width: 100%;
+}
+.new_itemimage .uploadtext {
+    font-size: 1em;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* */
+.new_itemimage {
+	padding: 10px;
+}
+#images {
+	padding: 5px;
+}
+#images .actions{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	left: 0;
+}
+#images li{
+list-style: none;
+}
+.sort-image {
+	font-size: 12px;
+	color: #777;
+	cursor: move;
+}
+.sort-image a{
+    min-height: 100px;
+    cursor: move;
+}
+.sort-image .actions a{
+    cursor: pointer;
+}
+.sort-image .actions span{
+    cursor: pointer;
+}
+.sort-image a img{
+    cursor: pointer;
+}
+.itemimage {
+    width: 123px;
+    height: 158px;
+    position: relative;
+    text-align: center;
+    display: block;
+    float: left;
+    border: 1px solid #dddddd;
+    cursor: move;
+    padding: 5px;
+		margin: 5px;
+		background: white;
+}
+.itemimage img {
+	max-width: 100px;
+}

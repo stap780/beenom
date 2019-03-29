@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<div class="col-md-3 btn-group my-3" role="group">
+  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-success'%>
+  <%= link_to 'Назад', users_path, class: 'btn btn-info' %>
+</div>

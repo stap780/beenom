@@ -1,0 +1,75 @@
+<div class="row">
+<div class="col-5">
+<p>
+  <strong>Sku:</strong>
+  <%= @item.sku %>
+</p>
+
+<p>
+  <strong>Barcode:</strong>
+  <%= @item.barcode %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @item.quantity %>
+</p>
+
+<p>
+  <strong>Costprice:</strong>
+  <%= @item.costprice %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item.user.email %>
+</p>
+
+<div class="col-6 btn-group my-3" role="group">
+  <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %>
+  <%= link_to 'Назад', items_path, class: 'btn btn-info' %>
+</div>
+</div>
+<div class="col-md-7 col-xs-12">
+    <%= form_for Itemimage.new, :url => itemimages_path, html: { multipart: true } do |f| %>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <%= f.file_field :image, multiple: true , name: 'itemimage[image]', class: "inputfile"  %>
+      <%= f.label :image do %>
+        <i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i>
+        <span class="uploadtext">Upload</span>
+      <% end %>
+    <% end%>
+  <% # jquery upload template # %>
+  <script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
+
+  <ul id="images" data-update-url="<%= sort_itemimages_url %>">
+    <%@item.itemimages.each do |pic|%>
+      <% if pic.persisted?%>
+    <%= content_tag_for :li, pic do %>
+    <span class="sort-image">
+    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, target: '_blank' %>
+      <div class="actions">
+        <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(pic, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
+      </div>
+      </span>
+    <%end%>
+    <%end%>
+    <%end%>
+  </ul>
+</div>
+</div>
