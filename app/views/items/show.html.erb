@@ -1,51 +1,82 @@
 <div class="row">
-<div class="col-5">
-<p>
-  <strong>Sku:</strong>
-  <%= @item.sku %>
-</p>
+<div class="col-10 row">
 
-<p>
-  <strong>Barcode:</strong>
-  <%= @item.barcode %>
-</p>
+      <div class="form-group col-3">
+        <label class="" >Sku</label>
+        <%= @item.sku %>
+      </div>
+      <div class="form-group col-3">
+        <label class="">Barcode</label>
+        <%= @item.barcode %>
+      </div>
+      <div class="form-group col-3">
+        <label class="">Fship</label>
+        <%= @item.fship %>
+      </div>
+      <div class="form-group col-3">
+        <label class="">Weight</label>
+          <%= @item.weight %>
+      </div>
+      <div class="form-group col-12">
+        <label class="text">Help</label>
+          <%= @item.description %>
+      </div>
+      <div class="form-group col-6">
+        <label class=""> Title RU</label>
+            <%= @item.title %>
+      </div>
+      <div class="form-group col-6">
+        <label class="">Title Eng</label>
+        <%= @item.title_eng %>
+      </div>
+      <div class="form-group col-6">
+        <label class="text ">Desc RU</label>
+        <%= @item.desc_ru %>
+      </div>
+      <div class="form-group col-6">
+        <label class="text">Desc Eng</label>
+        <%= @item.desc_eng %>
+      </div>
+      <div class="form-group col-2">
+        <label >Quantity</label>
+          <%= @item.quantity %>
+      </div>
+      <div class=" form-group col-2">
+        <label >Costprice</label>
+        <%= @item.costprice %>
+      </div>
+      <div class="form-group col-2">
+        <label class=" ">Price</label>
+        <%= @item.price %>
+      </div>
+      <div class="form-group col-3">
+        <label class=" " for="item_type">Type</label>
+        <%= @item.type %>
+      </div>
+      <div class="form-group col-3">
+        <label class=" " >Vendor</label>
+        <%= @item.vendor %>
+      </div>
+      <div class="form-group col-4">
+        <label class=" " >Cat1</label>
+        <%= @item.cat1 %>
+      </div>
+      <div class="form-group col-4">
+        <label class=" " >Cat2</label>
+        <%= @item.cat2 %>
+      </div>
+      <div class="form-group col-4">
+        <label class=" " >Cat3</label>
+        <%= @item.cat3 %>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @item.quantity %>
-</p>
-
-<p>
-  <strong>Costprice:</strong>
-  <%= @item.costprice %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @item.user.email %>
-</p>
-
-<div class="col-6 btn-group my-3" role="group">
+<div class="col-3 btn-group my-3">
   <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %>
   <%= link_to 'Назад', items_path, class: 'btn btn-info' %>
 </div>
 </div>
-<div class="col-md-7 col-xs-12">
+<div class="col-2">
     <%= form_for Itemimage.new, :url => itemimages_path, html: { multipart: true } do |f| %>
     <%= f.hidden_field :item_id, value: @item.id %>
     <%= f.file_field :image, multiple: true , name: 'itemimage[image]', class: "inputfile"  %>

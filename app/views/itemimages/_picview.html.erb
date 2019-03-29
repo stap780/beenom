@@ -4,7 +4,7 @@
 <%= link_to image_tag(itemimage.image.url(:thumb)), itemimage.image.url, :target => '_blank' %>
   <div class="actions">
     <% if itemimage.item_id == nil || ''%>
-    <span class="pseudoDelete" ><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
+    <span class="pseudoDelete" onclick="pseudoDelete(<%= itemimage.id %>)" id="<%= itemimage.id %>"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
 <% else %>
 <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(itemimage, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
 <% end %>

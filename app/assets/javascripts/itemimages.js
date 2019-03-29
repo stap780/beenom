@@ -26,20 +26,21 @@ $(document).ready(function() {
    },
    done: function (e, data) {
       $('.upload').css('display','none');
-      $('.pseudoDelete').click(function() {
-        if (confirm('Вы точно хотите удалить')) {
-          var imageId = $(this).closest( "li" ).attr('id').replace("itemimage_", "");
-          var url = "/itemimages/"+imageId
-          $(this).closest( "li" ).remove();
-          $.ajax({
-            type: "DELETE",
-            url: url
-          })
-        }
-      });
+      // $('.pseudoDelete').click(function() {
+      //   if (confirm('Вы точно хотите удалить')) {
+      //     var imageId = $(this).closest( "li" ).attr('id').replace("itemimage_", "");
+      //     var url = "/itemimages/"+imageId
+      //     $(this).closest( "li" ).remove();
+      //     $.ajax({
+      //       type: "DELETE",
+      //       url: url
+      //     })
+      //   }
+      // });
 
    }
  });
+
 
 
 

@@ -4,6 +4,6 @@ class Item < ActiveRecord::Base
   accepts_nested_attributes_for :itemimages, allow_destroy: true
 
   validates :sku, presence: true, uniqueness: true
-  validates :title, presence: true
+  #validates :title, presence: true
 
 end

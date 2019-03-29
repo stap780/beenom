@@ -48,4 +48,21 @@ $(document).ready(function(){
 		});
 
 
+
+
+
 });
+
+function pseudoDelete(obj){
+	//console.log(obj);
+		var target = "#itemimage_"+obj
+		if (confirm('Вы точно хотите удалить')) {
+			var url = "/itemimages/"+obj
+			$(target).remove();
+			$.ajax({
+				type: "DELETE",
+				url: url
+			})
+		}
+
+}

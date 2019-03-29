@@ -58,7 +58,7 @@
 	<% end %>	<% end %><% end %>
 
 	<main role="main" class="container-fluid">
-		 <div class="my-3 p-0">
+		 <div class="my-3 p-2">
 			 <% unless current_page?(login_path)%> <% unless current_page?(sessions_path) %>
 			 <% flash.each do |key, value| %>
  				<%= content_tag(:div, class: "alert alert-#{key} alert-dismissable") do %>

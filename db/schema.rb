@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190328135958) do
+ActiveRecord::Schema.define(version: 20190329152537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20190328135958) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "desc_ru"
+    t.string   "title_eng"
+    t.string   "desc_eng"
+    t.string   "charact"
+    t.string   "fship"
+    t.string   "weight"
+    t.string   "cat1"
+    t.string   "cat2"
+    t.string   "cat3"
+    t.string   "type"
+    t.string   "vendor"
   end
 
   create_table "permcl_actions", force: :cascade do |t|
