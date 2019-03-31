@@ -1,7 +1,7 @@
 <% if itemimage.persisted?%>
 <%= content_tag_for :li, itemimage do %>
 <span class="sort-image">
-<%= link_to image_tag(itemimage.image.url(:thumb)), itemimage.image.url, :target => '_blank' %>
+<%= link_to image_tag(itemimage.image.url(:thumb) , :class => "sort-image-a-img", "data-content"=>"#{image_tag(itemimage.image.url(:medium))}", "data-delay"=>"{'show':200,'hide':200}", "data-html"=>"true", "data-placement"=>"left", "data-toggle"=>"popover", "data-trigger"=>"hover"), itemimage.image.url, :target => '_blank', :class => "sort-image-a"  %>
   <div class="actions">
     <% if itemimage.item_id == nil || ''%>
     <span class="pseudoDelete" onclick="pseudoDelete(<%= itemimage.id %>)" id="<%= itemimage.id %>"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>

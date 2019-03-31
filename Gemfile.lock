@@ -51,6 +51,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-popover-rails (0.1.0)
     builder (3.2.3)
     byebug (11.0.0)
     cancancan (2.3.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   bcrypt
   bcrypt_pbkdf (< 2.0)
   bootstrap (~> 4.3.1)
+  bootstrap-popover-rails
   byebug
   cancancan
   capistrano-rails

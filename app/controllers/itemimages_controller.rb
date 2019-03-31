@@ -63,7 +63,7 @@ class ItemimagesController < ApplicationController
 	    respond_to do |format|
 	      format.html { redirect_to itemimages_url, notice: 'Картинка удалена' }
 	      format.json { head :no_content }
-        format.js
+        format.js 
 	    end
     end
   end

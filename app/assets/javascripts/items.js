@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$('#images').sortable({
-    axis: 'x',
+    axis: 'y',
     handle: '.sort-image',
     update: function() {
 //       alert('updated!');

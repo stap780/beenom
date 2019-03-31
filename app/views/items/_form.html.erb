@@ -59,7 +59,7 @@
       <% if pic.persisted?%>
     <%= content_tag_for :li, pic do %>
     <span class="sort-image">
-    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, target: '_blank' %>
+    <%= link_to image_tag(pic.image.url(:thumb) , "data-content"=>"#{image_tag(pic.image.url(:medium))}", "data-delay"=>"{'show':200,'hide':200}", "data-html"=>"true", "data-placement"=>"left", "data-toggle"=>"popover", "data-trigger"=>"hover" , :class => "sort-image-a-img"), pic.image.url, :target => '_blank', :class => "sort-image-a" %>
       <div class="actions">
         <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(pic, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
       </div>

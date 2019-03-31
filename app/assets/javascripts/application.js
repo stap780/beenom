@@ -16,6 +16,8 @@
 //= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require bootstrap/bootstrap-rails-tooltip
+//= require bootstrap/bootstrap-rails-popover
 //= require cocoon
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
@@ -25,12 +27,10 @@
 
 $(document).ready(function(){
 
-			$("a[rel~=popover], .has-popover").popover();
-		  $("a[rel~=tooltip], .has-tooltip").tooltip();
       $('.dropdown-toggle').dropdown();
 
 			$('[data-toggle="popover"]').popover({
-			container: 'body'
+				container: 'body'
 			});
 
 			$(".alert" ).fadeOut(5000);
@@ -49,9 +49,8 @@ $(document).ready(function(){
 
 
 
-
-
 });
+
 
 function pseudoDelete(obj){
 	//console.log(obj);
@@ -60,6 +59,7 @@ function pseudoDelete(obj){
 			var url = "/itemimages/"+obj
 			$(target).remove();
 			$.ajax({
+				dataType: "json",
 				type: "DELETE",
 				url: url
 			})
