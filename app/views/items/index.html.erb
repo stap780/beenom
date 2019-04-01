@@ -5,9 +5,11 @@
   <thead>
     <tr class="bg-light">
       <th>Sku</th>
-      <th>Barcode</th>
-      <th>Title</th>
-      <th>Description</th>
+      <th>Photo</th>
+      <th>Title RU</th>
+      <th>Desc RU</th>
+      <th>Title ENG</th>
+      <th>Desc ENG</th>
       <th>Quantity</th>
       <th>Costprice</th>
       <th>Price</th>
@@ -19,9 +21,13 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= link_to item.sku , item %></td>
-        <td><%= item.barcode %></td>
+        <td><%pic = item.itemimages.first if item.itemimages.present? %>
+          <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, :target => '_blank'%>
+        </td>
         <td><%= item.title %></td>
-        <td><%= item.description %></td>
+        <td><%= item.desc_ru %></td>
+        <td><%= item.title_eng %></td>
+        <td><%= item.desc_eng %></td>
         <td><%= item.quantity %></td>
         <td><%= item.costprice %></td>
         <td><%= item.price %></td>
