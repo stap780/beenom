@@ -1,7 +1,7 @@
 <div class="row">
 
 <%= simple_form_for @item, :html => { multipart: true , class: 'col-10 row'} do |f| %>
-<%= f.error_notification %>
+    <%= f.error_notification %>
     <%= f.input :user_id , as: :hidden, :input_html => { :value => current_user.id }%>
     <%= f.input :sku , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
     <%= f.input :barcode , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
@@ -15,8 +15,12 @@
     <%= f.input :desc_eng, label: 'Desc Eng', as: :text , input_html: { class: 'form-control', rows: 10, cols: 10 }, wrapper_html: { class: 'form-group col-6' }%>
 
     <%= f.input :quantity , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
+    <% if current_user.role == 'admin' %>
     <%= f.input :costprice , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
+    <% else %><div class="form-group col-2"</div><% end %>
+    <% if current_user.role == 'admin' %>
     <%= f.input :price , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
+    <% else %><div class="form-group col-2"</div><% end %>
     <%= f.input :item_type , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
     <%= f.input :vendor , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
     <%= f.input :cat1 , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-4' }%>
