@@ -7,6 +7,25 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+
+    if params['file_type'] == 'eng'
+      filename = "shopify_eng.csv"
+      respond_to do |format|
+      format.html
+      format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
+      format.json
+      format.xml
+      end
+    else
+      filename = "shopify.csv"
+      respond_to do |format|
+      format.html
+      format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
+      format.json
+      format.xml
+      end
+    end
+
   end
 
   # GET /items/1

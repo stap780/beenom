@@ -1,6 +1,17 @@
 <div class="row">
   <h1 class="col-2">Товары</h1>
   <div class="col-2"><%= link_to 'Добавить', new_item_path, :class => "btn btn-light" %></div>
+  <div class="col-2">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Скачать
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to 'Shopify', items_path(params.merge(format: "csv")), title: "Shopify", class: 'dropdown-item'%>
+      <%# link_to 'ENG Shopify', items_path(params.merge(format: "csv", file_type: 'eng')), title: "Shopify Eng", class: 'dropdown-item'%>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed table-sm">
