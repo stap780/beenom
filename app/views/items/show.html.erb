@@ -76,11 +76,12 @@
 
 
 <div class="col-3 btn-group my-3">
-  <%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %>
+  <% if can? :update, @item %><%= link_to 'Edit', edit_item_path(@item), class: 'btn btn-success' %><% end %>
   <%= link_to 'Назад', items_path, class: 'btn btn-info' %>
 </div>
 </div>
 <div class="col-2">
+  <% if can? :create, @item %>
     <%= form_for Itemimage.new, :url => itemimages_path, html: { multipart: true } do |f| %>
     <%= f.hidden_field :item_id, value: @item.id %>
     <%= f.file_field :image, multiple: true , name: 'itemimage[image]', class: "inputfile"  %>
@@ -89,6 +90,7 @@
         <span class="uploadtext">Upload</span>
       <% end %>
     <% end%>
+  <% end %>  
   <% # jquery upload template # %>
   <script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
 

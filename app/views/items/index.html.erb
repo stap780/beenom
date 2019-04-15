@@ -1,6 +1,6 @@
 <div class="row">
   <h1 class="col-2">Товары</h1>
-  <div class="col-2"><%= link_to 'Добавить', new_item_path, :class => "btn btn-light" %></div>
+  <div class="col-2"><% if can? :create, Item %><%= link_to 'Добавить', new_item_path, :class => "btn btn-light" %><% end %></div>
   <div class="col-2">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,8 +44,8 @@
         <td><%= item.quantity %></td>
         <td><%= item.costprice %></td>
         <td><%= item.price %></td>
-        <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_item_path(item) %></td>
-        <td><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :update, item %><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_item_path(item) %><% end %></td>
+        <td><% if can? :destroy, item %><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>
