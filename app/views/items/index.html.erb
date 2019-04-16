@@ -7,8 +7,8 @@
       Скачать
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to 'Shopify', items_path(params.merge(format: "csv")), title: "Shopify", class: 'dropdown-item'%>
-      <%# link_to 'ENG Shopify', items_path(params.merge(format: "csv", file_type: 'eng')), title: "Shopify Eng", class: 'dropdown-item'%>
+      <%= link_to 'Shopify ru', shopify_ru_items_path(params.merge(format: "csv")), title: "Shopify ru", class: 'dropdown-item'%>
+      <%= link_to 'Shopify eng', shopify_eng_items_path(params.merge(format: "csv")), title: "Shopify Eng", class: 'dropdown-item'%>
       </div>
     </div>
   </div>

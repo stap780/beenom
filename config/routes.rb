@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :homes
   resources :items do
   	collection do
+      get  :shopify_ru
+      get  :shopify_eng
   		get  :scanner
   		post :get_barcode
   		get  :multi_barcode_pdf
