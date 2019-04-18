@@ -7,7 +7,9 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
-
+    @search = Item.ransack(params[:q]) #используется application_controller и там в before filter :set_search
+  	@search.sorts = 'id asc' if @search.sorts.empty? # сортировка таблицы по id по умолчанию
+  	@items = @search.result.includes(:itemimages).paginate(page: params[:page], per_page: 30)
   end
 
   def shopify_ru
