@@ -13,7 +13,7 @@ class Ability
       end
       if user.role == "manager"
         #can :read, :all
-        puts user.permissions.present?
+        # puts user.permissions.present?
 				user.permissions.each do |permission|
           puts "cname - #{cname}"
           puts "permission.permcl.systitle - #{permission.permcl.systitle}"

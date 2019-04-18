@@ -14,10 +14,10 @@ class ItemsController < ApplicationController
     @items = Item.where.not(sku:nil, title: nil, title_eng: nil, quantity: nil, price: nil).includes(:itemimages).where.not(itemimages: {id: nil})
     filename = "shopify_ru.csv"
     respond_to do |format|
-    format.html
+    # format.html
     format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
-    format.json
-    format.xml
+    # format.json
+    # format.xml
     end
   end
 
@@ -25,10 +25,10 @@ class ItemsController < ApplicationController
     @items = Item.where.not(sku:nil, title_eng: nil, quantity: nil, price: nil).includes(:itemimages).where.not(itemimages: {id: nil})
     filename = "shopify_eng.csv"
     respond_to do |format|
-    format.html
+    # format.html
     format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
-    format.json
-    format.xml
+    # format.json
+    # format.xml
     end
   end
 
