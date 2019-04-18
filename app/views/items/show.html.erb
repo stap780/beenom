@@ -45,6 +45,7 @@
         <label >Quantity</label>
           <%= @item.quantity %>
       </div>
+      <% if current_user.role == 'admin' %>
       <div class=" form-group col-2">
         <label >Costprice</label>
         <%= @item.costprice %>
@@ -53,6 +54,7 @@
         <label class=" ">Price</label>
         <%= @item.price %>
       </div>
+      <% end %>
       <div class="form-group col-3">
         <label class=" " for="item_type">Type</label>
         <%= @item.item_type %>
@@ -90,7 +92,7 @@
         <span class="uploadtext">Upload</span>
       <% end %>
     <% end%>
-  <% end %>  
+  <% end %>
   <% # jquery upload template # %>
   <script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
 

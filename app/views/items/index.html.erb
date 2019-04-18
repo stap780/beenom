@@ -24,8 +24,10 @@
       <th>Title ENG</th>
       <th>Desc ENG</th>
       <th>Quantity</th>
+      <% if current_user.role == 'admin' %>
       <th>Costprice</th>
       <th>Price</th>
+      <% end %>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -44,8 +46,10 @@
         <td><%= item.title_eng %></td>
         <td><%= truncate(item.desc_eng,  length: 50 ) %></td>
         <td><%= item.quantity %></td>
+        <% if current_user.role == 'admin' %>
         <td><%= item.costprice %></td>
         <td><%= item.price %></td>
+        <% end %>
         <td><% if can? :update, item %><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_item_path(item) %><% end %></td>
         <td><% if can? :destroy, item %><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
