@@ -54,8 +54,9 @@ end
       respond_to do |format|
       	if @user.update(user_params)
 
-  			puts params[:role]
-  			if params[:role] == 'manager'
+  			puts "Тип пользователя - #{params[:user][:role]}"
+  			if params[:user][:role] == 'manager'
+          puts "Параметры доступа - #{params[:permissions]}"
   			    params[:permissions].each do |k,v|
   					user_id = v[:user_id]
   					permcl_id = v[:permcl_id]

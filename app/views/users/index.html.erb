@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Пользователи</h1>
-<p><%= link_to 'Добавить', new_user_path %></p>
+<p><% if can? :create, User %><%= link_to 'Добавить', new_user_path %><% end %></p>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed table-sm">
@@ -16,8 +16,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.email, user %></td>
-        <td><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_user_path(user) %></td>
-        <td><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :update, user %><%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_user_path(user) %><% end%> </td>
+        <td><% if can? :destroy, user %><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>

@@ -7,16 +7,17 @@ class Ability
 		alias_action :edit, :to => :update
     # Define abilities for the passed in user here. For example:
       user ||= User.new # guest user (not logged in)
-      puts 'user role - '+"#{user.role}"
+      puts "Ability - user role - #{user.role}"
       if user.role == "admin"
         can :manage, :all
       end
       if user.role == "manager"
         #can :read, :all
+        puts user.permissions.present?
 				user.permissions.each do |permission|
-          puts 'cname - '+"#{cname}"
-          puts 'permission.permcl.systitle - '+"#{permission.permcl.systitle}"
-          puts 'permission.permcl_action.title - '+"#{permission.permcl_action.title}"
+          puts "cname - #{cname}"
+          puts "permission.permcl.systitle - #{permission.permcl.systitle}"
+          puts "permission.permcl_action.title - #{permission.permcl_action.title}"
           if permission.permcl.systitle.constantize == cname
             can permission.permcl_action.title.to_sym, permission.permcl.systitle.constantize
           else

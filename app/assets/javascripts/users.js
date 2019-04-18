@@ -22,8 +22,8 @@ $(document).ready(function() {
 
 	//простановка статусов при загрузке страницы
 	var user_id = $('#user').text();
+	console.log(user_id);
 	if ( $('#user_role option:selected').val() === 'manager' ){
-		console.log('user_id');
 		$.ajax({
 		  type: "POST",
 		  url: "/permissions/user_permissions.json",
