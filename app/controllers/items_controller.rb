@@ -8,27 +8,10 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    # if params['file_type'] == 'eng'
-    #   filename = "shopify_eng.csv"
-    #   respond_to do |format|
-    #   format.html
-    #   format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
-    #   format.json
-    #   format.xml
-    #   end
-    # else
-    #   filename = "shopify_ru.csv"
-    #   respond_to do |format|
-    #   format.html
-    #   format.csv { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
-    #   format.json
-    #   format.xml
-    #   end
-    # end
   end
 
   def shopify_ru
-    @items = Item.all
+    @items = Item.where.not(sku:nil, title_eng: nil, quantity: nil, price: nil).includes(:itemimages).where.not(itemimages: {id: nil})
     filename = "shopify_ru.csv"
     respond_to do |format|
     format.html
