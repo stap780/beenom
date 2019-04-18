@@ -1,9 +1,8 @@
 <div class="row">
-  <<div class="col-2">
+  <div class="col-2">
     <h1>Товары</h1>
     <p>Всего - <%= Item.count%></p>
   </div>
-  <h1 class="col-2">Товары</h1>
   <div class="col-2"><% if can? :create, Item %><%= link_to 'Добавить', new_item_path, :class => "btn btn-light" %><% end %></div>
   <div class="col-2">
     <div class="dropdown">
