@@ -17,18 +17,27 @@
       </div>
     </div>
   </div>
+  <div class="col-3">
+  <%= search_form_for @search, html: {class: 'form-inline'}  do |f|%>
+    <div class="form-group">
+      <%= f.search_field :sku_or_title_or_title_eng_cont_all, placeholder: 'Sku, Название', class: "form-control input-sm"%>
+      <%= f.submit 'Поиск', class: 'btn btn-light' %>
+      <%= link_to 'Сбросить',items_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+  </div>
 </div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed table-sm">
   <thead>
     <tr class="bg-light">
-      <th>Sku</th>
+      <th><%= sort_link(@search, :sku, 'Sku') %></th>
       <th>Photo</th>
-      <th>Title RU</th>
+      <th><%= sort_link(@search, :title, 'Title RU') %></th>
       <th>Desc RU</th>
-      <th>Title ENG</th>
+      <th><%= sort_link(@search, :title_eng, 'Title ENG') %></th>
       <th>Desc ENG</th>
-      <th>Quantity</th>
+      <th><%= sort_link(@search, :quantity, 'Quantity') %></th>
       <% if current_user.role == 'admin' %>
       <th>Costprice</th>
       <th>Price</th>
@@ -47,9 +56,9 @@
           <% end %>
         </td>
         <td><%= item.title %></td>
-        <td><%= truncate(item.desc_ru, length: 50 )  %></td>
+        <td><%= truncate(item.desc_ru, length: 45 )  %></td>
         <td><%= item.title_eng %></td>
-        <td><%= truncate(item.desc_eng,  length: 50 ) %></td>
+        <td><%= truncate(item.desc_eng,  length: 45 ) %></td>
         <td><%= item.quantity %></td>
         <% if current_user.role == 'admin' %>
         <td><%= item.costprice %></td>

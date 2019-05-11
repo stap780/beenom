@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
   load_and_authorize_resource
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  # before_filter :authorize, only: [:edit, :update]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    # @items = Item.all
     @search = Item.ransack(params[:q]) #используется application_controller и там в before filter :set_search
-  	@search.sorts = 'id asc' if @search.sorts.empty? # сортировка таблицы по id по умолчанию
+  	@search.sorts = 'id desc' if @search.sorts.empty? # сортировка таблицы по id по умолчанию
   	@items = @search.result.includes(:itemimages).paginate(page: params[:page], per_page: 30)
   end
 
