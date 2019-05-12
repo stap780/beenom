@@ -39,8 +39,8 @@
       <th>Desc ENG</th>
       <th><%= sort_link(@search, :quantity, 'Quantity') %></th>
       <% if current_user.role == 'admin' %>
-      <th>Costprice</th>
-      <th>Price</th>
+      <th>Costprice USD</th>
+      <th>Price USD</th>
       <% end %>
       <th colspan="2"></th>
     </tr>
@@ -55,9 +55,9 @@
           <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, :target => '_blank' %>
           <% end %>
         </td>
-        <td><%= item.title %></td>
+        <td><%= truncate(item.title, length: 80 ) %></td>
         <td><%= truncate(item.desc_ru, length: 45 )  %></td>
-        <td><%= item.title_eng %></td>
+        <td><%= truncate(item.title_eng, length: 80 ) %></td>
         <td><%= truncate(item.desc_eng,  length: 45 ) %></td>
         <td><%= item.quantity %></td>
         <% if current_user.role == 'admin' %>
