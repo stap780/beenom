@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   has_many	 :itemimages, :dependent => :destroy
   accepts_nested_attributes_for :itemimages, allow_destroy: true
 
-  validates :sku, presence: true, uniqueness: true
+  #validates :sku, presence: true, uniqueness: true
   validates :title_eng, presence: true
 
 end

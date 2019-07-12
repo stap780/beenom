@@ -3,14 +3,23 @@
 <%= simple_form_for @item, :html => { multipart: true , class: 'col-10 row'} do |f| %>
     <%= f.error_notification %>
     <%= f.input :user_id , as: :hidden, :input_html => { :value => current_user.id }%>
-    <%= f.input :sku , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
+    <% if @item.new_record? %>
+    <%= f.input :id , label: 'Sku', disabled: true, input_html: { class: 'form-control', value: Item.last.id+1 }, wrapper_html: { class: 'form-group col-2' }%>
+    <% else %>
+    <%= f.input :id , label: 'Sku', disabled: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
+    <% end %>
+    <%= f.input :sku , label: 'Sku производителя', input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
     <%= f.input :barcode , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
-    <%= f.input :fship , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
-    <%= f.input :weight , label: 'Weight (kg)' , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-3' }%>
+    <%= f.input :fship , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
+    <%= f.input :weight , label: 'Weight (kg)' , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-2' }%>
     <%= f.input :description, label: 'Help' , as: :text, input_html: { class: 'form-control', rows: 1}, wrapper_html: { class: 'form-group col-12' }%>
     <%= f.input :charact , as: :text, input_html: { class: 'form-control', rows: 3}, wrapper_html: { class: 'form-group col-12' }%>
     <%= f.input :title , label: 'Title RU', input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-6' }%>
+    <% if @item.new_record? %>
+    <%= f.input :title_eng , label: 'Title Eng', input_html: { class: 'form-control' , value: 'New porduct' }, wrapper_html: { class: 'form-group col-6' }%>
+    <% else %>
     <%= f.input :title_eng , label: 'Title Eng', input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group col-6' }%>
+    <% end %>
     <%= f.input :desc_ru, label: 'Desc RU', as: :text , input_html: { class: 'form-control', rows: 10, cols: 10 }, wrapper_html: { class: 'form-group col-6' }%>
     <%= f.input :desc_eng, label: 'Desc Eng', as: :text , input_html: { class: 'form-control', rows: 10, cols: 10 }, wrapper_html: { class: 'form-group col-6' }%>
 
@@ -32,8 +41,7 @@
   <div class="col-3 btn-group my-3 p-2">
     <%= f.button :submit, 'Сохранить' , class: 'btn btn-success'%>
     <%= link_to 'Назад', items_path, class: 'btn btn-info' %>
-    </div>
-
+  </div>
 
 <% end %>
 
